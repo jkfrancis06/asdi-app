@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import {IonicPage, NavController, NavParams, AlertController, LoadingController} from 'ionic-angular';
 
 // service
-
 import {LoginProvider} from '../../providers/login/login';
 
+//Pages
+
+import {HomePage} from '../home/home';
+import {StringProvider} from "../../providers/string/string";
 
 @Component({
   selector: 'page-login',
@@ -19,16 +22,17 @@ export class LoginPage{
 
   manager : any;
 
+  loading : any;
 
 
-  ERROR_MESSAGE_TITLE = "Invalid input";
-  ERROR_MESSAGE = "Fields must not be empty";
 
 
   constructor(private alertCtrl: AlertController,
               public navCtrl: NavController,
               public navParams: NavParams,
-              private loginProvider: LoginProvider) {
+              private loginProvider: LoginProvider,
+              public loadingCtrl: LoadingController,
+              public stingProvider: StringProvider) {
   }
 
 
@@ -41,18 +45,42 @@ export class LoginPage{
     alert.present();
   }
 
+  presentLoadingDefault() {
+    this.loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+
+    this.loading.present();
+  }
+
 
   checkForm() {
 
-    if (this.loginData.username === '' || this.loginData.password === ''){
-      this.formErrorAlert(this.ERROR_MESSAGE_TITLE,this.ERROR_MESSAGE);
-    }else {
 
+    this.presentLoadingDefault();
+
+    if (this.loginData.username === '' || this.loginData.password === ''){
+      this.loading.dismiss()
+      this.formErrorAlert(this.stingProvider.ERROR_MESSAGE_TITLE,this.stingProvider.ERROR_MESSAGE);
+    }else {
       this.loginProvider.loadLoginData(this.loginData.username).subscribe(
-        admin => {
-          this.admins = admin;
-          this.show = true;
-        });
+        manager => {
+          this.manager = manager;
+          if (this.manager.length <= 0){
+            this.loading.dismiss()
+            this.formErrorAlert(this.stingProvider.ERROR_LOGIN_MESSAGE_TITLE,this.stingProvider.ERROR_LOGIN_MESSAGE);
+          }else {
+            if (this.manager[0].password === this.loginData.password){
+              this.loading.dismiss()
+              this.navCtrl.setRoot(HomePage);
+            }else {
+              this.loading.dismiss()
+              this.formErrorAlert(this.stingProvider.ERROR_LOGIN_MESSAGE_TITLE,this.stingProvider.ERROR_LOGIN_MESSAGE);
+
+            }
+          }
+        }
+      )
     }
 
   }

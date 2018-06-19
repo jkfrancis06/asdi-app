@@ -1,12 +1,12 @@
 ::-webkit-input-placeholder {
-  color: white !important;
+  color: black !important;
 }
 :-moz-placeholder {
-  color: white !important;
+  color: black !important;
 }
 :-ms-input-placeholder {
   /* IE10+ */
-  color: white !important;
+  color: black !important;
 }
 
 .username-item{
@@ -20,7 +20,7 @@
 }
 
 .username{
-  color:white;
+  color:black;
   border-bottom-color:white;
   box-shadow:none;
 }
@@ -36,16 +36,11 @@
 }
 
 .password{
-  color:white;
+  color:black;
   border-bottom-color:white;
   box-shadow:none;
 }
 
-.login{
-  background-image:url('../../../assets/imgs/login-background.jpeg');
-  background-repeat: no-repeat;
-  background-size: 100% 100%
-}
 
 .login-button{
   margin-top: 15px;

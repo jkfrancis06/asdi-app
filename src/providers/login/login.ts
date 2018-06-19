@@ -1,7 +1,9 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {AngularFireDatabase, AngularFireList, AngularFireObject} from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/Rx';
+
+
 
 @Injectable()
 export class LoginProvider {
