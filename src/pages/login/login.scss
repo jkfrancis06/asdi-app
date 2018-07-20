@@ -1,60 +1,200 @@
-::-webkit-input-placeholder {
-  color: black !important;
+//::-webkit-input-placeholder {
+//  color: black !important;
+//}
+//:-moz-placeholder {
+//  color: black !important;
+//}
+//:-ms-input-placeholder {
+//  /* IE10+ */
+//  color: black !important;
+//}
+//
+//.username-item{
+//  padding:0px !important;
+//  border-bottom:none !important;
+//  border-top:none;font-size: 14px;
+//  margin-top:10px;
+//  background:none;
+//  border-bottom:1px solid white;
+//  box-shadow:none;
+//}
+//
+//.username{
+//  color:black;
+//  border-bottom-color:white;
+//  box-shadow:none;
+//}
+//
+//
+//.password-item{
+//  padding:0px !important;
+//  font-size: 14px;
+//  margin-top:10px;
+//  background:none;
+//  border-bottom:1px solid white;
+//  box-shadow:none;
+//}
+//
+//.password{
+//  color:black;
+//  border-bottom-color:white;
+//  box-shadow:none;
+//}
+//
+//
+//.login-button{
+//  margin-top: 15px;
+//  height: 35px;
+//  font-size: 14px;
+//  background: #10ABF4;
+//}
+//
+//.list-form{
+//  margin-top:30px;
+//  margin-bottom: 30px
+//}
+//
+//
+//.no-scroll .scroll-content{
+//  overflow: hidden;
+//}
+
+
+/*
+
+  .benefit-tag-line-row {
+    padding-top: 44px;
+    padding-bottom: 44px;
+  }
+
+  .benefit-tag-line-icon {
+    zoom: 4.0;
+  }
+
+*/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+/*
+  ios 	    ios Viewing on an iphone, ipad, or ipod will use the iOS styles.
+  android 	md 	Viewing on any android device will use the Material Design styles.
+  windows 	wp 	Viewing on any windows device inside cordova or electron uses the Windows styles.
+  core     	md 	Any platform that doesn’t fit any of the above platforms will use the Material Design styles.
+ */
+
+.ios, .md, .wp {
+
+  h1 {
+    font-size: 3.0rem;
+    margin-top: 4px;
+  }
+
+  h2 {
+    font-size: 2.4rem;
+  }
+
+  p {
+    font-size: 2.2rem;
+  }
+
+  .item {
+    background-color: transparent;
+  }
+
+  // Don't UPPERCASE .buttons
+  button {
+    text-transform: none;
+  }
+
+  .card p {
+    font-size: 1.4rem;
+  }
+
+  /*
+  .label[floating] {
+    color: white;
+  }
+  */
+
+  .tabs .tabbar {
+    // background: white;
+    background-color: transparent;
+  }
+
+  .tabs .tab-button-icon {
+    color: #8c8c8c;
+  }
+
+  .tabs .tab-button[aria-selected=true] .tab-button-icon {
+    // color: color($colors, danger);
+    color: white; // color: #488aff;
+  }
+
+  .tabs .tab-button {
+    color: #8c8c8c;
+  }
+
+  .tabs .tab-button:hover:not(.disable-hover),
+  .tabs .tab-button[aria-selected=true] {
+    // color: color($colors, danger);
+    color: white; // color: #488aff;
+  }
 }
-:-moz-placeholder {
-  color: black !important;
-}
-:-ms-input-placeholder {
-  /* IE10+ */
-  color: black !important;
+
+
+ion-label{
+  color: white;
 }
 
-.username-item{
-  padding:0px !important;
-  border-bottom:none !important;
-  border-top:none;font-size: 14px;
-  margin-top:10px;
-  background:none;
-  border-bottom:1px solid white;
-  box-shadow:none;
-}
+page-login {
 
-.username{
-  color:black;
-  border-bottom-color:white;
-  box-shadow:none;
-}
+  color: white;
 
+  ion-content {
+    @include linear-gradient(left,$green-and-blue);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+  }
 
-.password-item{
-  padding:0px !important;
-  font-size: 14px;
-  margin-top:10px;
-  background:none;
-  border-bottom:1px solid white;
-  box-shadow:none;
-}
+  p {
+    font-size: 1.8rem;
+  }
 
-.password{
-  color:black;
-  border-bottom-color:white;
-  box-shadow:none;
-}
+  .app-icon-container {
+    padding-top: 44px;
+    padding-bottom: 44px;
+  }
 
+  .app-icon-zoom {
+    zoom: 4.0;
+  }
 
-.login-button{
-  margin-top: 15px;
-  height: 35px;
-  font-size: 14px;
-  background: #10ABF4;
-}
+  .sign-in-button-container {
+    padding-top: 40px;
+  }
 
-.list-form{
-  margin-top:30px;
-  margin-bottom: 30px
-}
+  .validator-error {
+    color: color($colors, danger);
+    padding-top: 8px;
+    padding-left: 16px;
+  }
 
+  .fab-container {
+    position: relative;
+  }
 
-.no-scroll .scroll-content{
-  overflow: hidden;
 }

@@ -12,7 +12,7 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <preference name="StatusBarOverlaysWebView" value="true" />
-    <preference name="StatusBarBackgroundColor" value="#039be5" />
+    <preference name="StatusBarBackgroundColor" value="#488aff" />
     <preference name="StatusBarStyle" value="lightcontent" />
     <preference name="ScrollEnabled" value="false" />
     <preference name="android-minSdkVersion" value="19" />
@@ -86,4 +86,5 @@
     <plugin name="cordova-plugin-ionic-keyboard" spec="2.0.5" />
     <engine name="android" spec="~7.0.0" />
     <plugin name="cordova-plugin-statusbar" spec="^2.4.2" />
+    <plugin name="cordova-sqlite-storage" spec="^2.3.3" />
 </widget>

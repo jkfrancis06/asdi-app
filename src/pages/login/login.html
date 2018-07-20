@@ -1,50 +1,118 @@
-<!--
-  Generated template for the LoginPage page.
+<!--&lt;!&ndash;-->
+  <!--Generated template for the LoginPage page.-->
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<!--<ion-header>-->
+  <!--See http://ionicframework.com/docs/components/#navigation for more info on-->
+  <!--Ionic pages and navigation.-->
+<!--&ndash;&gt;-->
+<!--&lt;!&ndash;<ion-header>&ndash;&gt;-->
 
-  <!--<ion-navbar>-->
-    <!--<ion-title>Connectez-vous</ion-title>-->
-  <!--</ion-navbar>-->
+  <!--&lt;!&ndash;<ion-navbar>&ndash;&gt;-->
+    <!--&lt;!&ndash;<ion-title>Connectez-vous</ion-title>&ndash;&gt;-->
+  <!--&lt;!&ndash;</ion-navbar>&ndash;&gt;-->
 
-<!--</ion-header>-->
+<!--&lt;!&ndash;</ion-header>&ndash;&gt;-->
 
 
-<ion-content padding class="login no-scroll" style="max-height: 100%">
+<!--<ion-content padding class="login no-scroll" style="max-height: 100%">-->
 
-  <ion-grid>
-    <ion-row>
-      <ion-col col-4></ion-col>
-      <ion-col col-4 style="margin-left: auto;margin-right: auto;display: block;">
-        <img src="../../../assets/imgs/asdi.png" style="width:100%;height:auto;border-radius: 100%">
+  <!--<ion-grid>-->
+    <!--<ion-row>-->
+      <!--<ion-col col-4></ion-col>-->
+      <!--<ion-col col-4 style="margin-left: auto;margin-right: auto;display: block;">-->
+        <!--<img src="../../../assets/imgs/asdi.png" style="width:100%;height:auto;border-radius: 100%">-->
+      <!--</ion-col>-->
+      <!--<ion-col col-4></ion-col>-->
+    <!--</ion-row>-->
+
+    <!--<ion-row>-->
+      <!--<ion-col col-8 offset-2="">-->
+        <!--<div style="text-align: center; font-size: large">-->
+          <!--CONNEXION-->
+        <!--</div>-->
+      <!--</ion-col>-->
+    <!--</ion-row>-->
+
+  <!--</ion-grid>-->
+
+  <!--<ion-list class="list-form">-->
+
+    <!--<ion-item class="username-item">-->
+      <!--<ion-input [(ngModel)]="loginData.username" class="username" type="text" placeholder="Username"></ion-input>-->
+    <!--</ion-item>-->
+    <!--<ion-item class="password-item">-->
+      <!--<ion-input [(ngModel)]="loginData.passwaord" class="password"  type="password" placeholder="Password"></ion-input>-->
+    <!--</ion-item>-->
+
+  <!--</ion-list>-->
+
+  <!--<button class="login-button" (click)="checkForm()" ion-button block>Login</button>-->
+
+<!--</ion-content>-->
+
+
+
+<ion-header no-border>
+
+  <!--
+  <ion-navbar transparent>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+  -->
+
+</ion-header>
+
+<ion-content no-bounce padding>
+
+  <!-- Sign in -->
+
+  <ion-row class="app-icon-container">
+    <ion-col text-center>
+      <img src="assets/imgs/asdi.png" />
+    </ion-col>
+  </ion-row>
+
+  <div>
+
+    <!--
+    <ion-input doesn't support autofocus
+    -->
+    <ion-item>
+      <ion-label floating>
+        Username
+      </ion-label>
+      <ion-input  [(ngModel)]="loginData.username" type="text">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>
+        Password
+      </ion-label>
+      <ion-input  [(ngModel)]="loginData.password" type="password"></ion-input>
+    </ion-item>
+
+    <ion-row class="sign-in-button-container">
+      <ion-col text-center>
+        <button class="login-button" (click)="checkForm()" ion-button block round>Login</button>
       </ion-col>
-      <ion-col col-4></ion-col>
     </ion-row>
 
-    <ion-row>
-      <ion-col col-8 offset-2="">
-        <div style="text-align: center; font-size: large">
-          CONNEXION
-        </div>
-      </ion-col>
-    </ion-row>
 
-  </ion-grid>
-
-  <ion-list class="list-form">
-
-    <ion-item class="username-item">
-      <ion-input [(ngModel)]="loginData.username" class="username" type="text" placeholder="Username"></ion-input>
-    </ion-item>
-    <ion-item class="password-item">
-      <ion-input [(ngModel)]="loginData.password" class="password"  type="password" placeholder="Password"></ion-input>
-    </ion-item>
-
-  </ion-list>
-
-  <button class="login-button" (click)="checkForm()" ion-button block>Login</button>
+  </div>
 
 </ion-content>
+
+<!--
+
+    <ion-item [@flyInOut]="emailState">
+    <ion-item [@flyInOut]="passwordState">
+
+<ion-input formControlName="email" type="email"></ion-input>
+<ion-input formControlName="password" type="password"></ion-input>
+
+<ion-footer no-border>
+</ion-footer>
+
+-->

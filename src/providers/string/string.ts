@@ -15,5 +15,6 @@ export class StringProvider {
   public ERROR_MESSAGE = "Fields must not be empty";
   public ERROR_LOGIN_MESSAGE = "Username or password incorrect";
   public ERROR_LOGIN_MESSAGE_TITLE = "Error";
+  public SUCCESS_LOGIN_MESSAGE = "You are authenticated successfully";
 
 }

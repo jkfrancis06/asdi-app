@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import {IonicPage, NavController, NavParams, AlertController, LoadingController} from 'ionic-angular';
+import { Storage } from '@ionic/storage';
+import { ToastController } from 'ionic-angular';
+
 
 // service
 import {LoginProvider} from '../../providers/login/login';
@@ -32,7 +35,9 @@ export class LoginPage{
               public navParams: NavParams,
               private loginProvider: LoginProvider,
               public loadingCtrl: LoadingController,
-              public stingProvider: StringProvider) {
+              public stingProvider: StringProvider,
+              private storage: Storage,
+              private toastCtrl: ToastController) {
   }
 
 
@@ -54,6 +59,20 @@ export class LoginPage{
   }
 
 
+  presentToast() {
+    let toast = this.toastCtrl.create({
+      message: this.stingProvider.SUCCESS_LOGIN_MESSAGE,
+      duration: 3000,
+      position: 'top'
+    });
+
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+
+    toast.present();
+  }
+
   checkForm() {
 
 
@@ -72,6 +91,9 @@ export class LoginPage{
           }else {
             if (this.manager[0].password === this.loginData.password){
               this.loading.dismiss()
+              this.presentToast();
+              this.storage.set('user_id', this.manager[0].key);
+              console.log(this.manager[0].key)
               this.navCtrl.setRoot(HomePage);
             }else {
               this.loading.dismiss()
