@@ -11,6 +11,7 @@ import {LoginProvider} from '../../providers/login/login';
 
 import {HomePage} from '../home/home';
 import {StringProvider} from "../../providers/string/string";
+import {ManagerServiceProvider} from "../../providers/manager-service/manager-service";
 
 @Component({
   selector: 'page-login',
@@ -34,6 +35,7 @@ export class LoginPage{
               public navCtrl: NavController,
               public navParams: NavParams,
               private loginProvider: LoginProvider,
+              private managerProvider: ManagerServiceProvider,
               public loadingCtrl: LoadingController,
               public stingProvider: StringProvider,
               private storage: Storage,
@@ -93,6 +95,12 @@ export class LoginPage{
               this.loading.dismiss()
               this.presentToast();
               this.storage.set('user_id', this.manager[0].key);
+              this.managerProvider.loadLocalManager(this.manager[0].key).subscribe(
+                manager => {
+                  this.storage.set('manager', JSON.stringify(manager));
+                  console.log(manager)
+                }
+              )
               console.log(this.manager[0].key)
               this.navCtrl.setRoot(HomePage);
             }else {
