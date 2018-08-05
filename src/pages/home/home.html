@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <template *ngIf="manager_farms.length == 0;else display_farm">
+      <ion-item>
+        No farm was affected. Please contact your administrator
+      </ion-item>
+    </template>
+    <ion-item #display_farm  *ngFor="let farm of manager_farms; index as i" (click)="loadFarm(i)">
+      <ion-thumbnail item-start>
+        <img src="assets/imgs/farm.png">
+      </ion-thumbnail>
+      <h2>{{farm.name}}</h2>
+      <p>{{farm.description}}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>

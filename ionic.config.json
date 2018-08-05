@@ -1,0 +1,7 @@
+{
+  "name": "asdi-app-farm",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
