@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component} from '@angular/core';
+import {IonicPage, LoadingController, NavController, NavParams} from 'ionic-angular';
 import {ReportServiceProvider} from "../../providers/report-service/report-service";
 import { Storage } from '@ionic/storage';
+import {ReportDetailsPage} from "../report-details/report-details";
 
 /**
  * Generated class for the ReportPage page.
@@ -20,21 +21,35 @@ export class ReportPage {
 
   manager: any;
   reports = [];
-  farm: any
+  farm: any;
+  loading : any;
+
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public reportService: ReportServiceProvider,
-              public storage: Storage) {
+              public storage: Storage,
+              public loadingCtrl: LoadingController) {
 
-
+    this.presentLoadingDefault();
     storage.get('farm').then((val) => {
       this.farm = JSON.parse(val)
       this.reportService.getReports(this.farm.key).subscribe(
         reports => {
           console.log(reports);
-          this.reports = reports;
-          this.loader = false;
+          let temp = reports
+          for( let i = 0; i< temp.length; i++){
+            // temp[i].date = new Date(reports[i].createdAt).toDateString();
+            let d = new Date()
+            if (d.toDateString() === new Date(reports[i].createdAt).toDateString()){
+              temp[i].createdAt = "Today  "+ new Date(reports[i].createdAt).toLocaleTimeString();
+            }else {
+              temp[i].createdAt = new Date(reports[i].createdAt).toDateString() +"  "+ new Date(reports[i].createdAt).toLocaleTimeString();
+            }
+            this.reports.unshift(temp[i])
+          }
+          console.log(temp)
+          this.loading.dismiss();
         });
     })
 
@@ -42,4 +57,21 @@ export class ReportPage {
   }
 
 
+
+
+  presentLoadingDefault() {
+    this.loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+
+    this.loading.present();
+  }
+
+
+  showDetails(i) {
+    let selected_report = this.reports[i];
+    this.navCtrl.push(ReportDetailsPage,{
+      report: JSON.stringify(selected_report)
+    })
+  }
 }

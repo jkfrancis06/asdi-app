@@ -16,7 +16,7 @@ import {TabsPage} from "../tabs/tabs";
 })
 export class HomePage {
 
-  manager: Manager;
+  manager: any;
   managers: any;
   farms: any;
   manager_farms = [];

@@ -17,29 +17,11 @@
 
 
   <ion-list>
-    <template *ngIf="reports.length == 0;else display_reports">
-      <ion-item>
-        No farm was affected. Please contact your administrator
-      </ion-item>
-    </template>
-
-
-
-    <ion-card #display_reports  *ngFor="let report of reports; index as i">
-
-      <img class="img-report" src="assets/imgs/in-depth-reporting.png">
-      <!--<img-loader [src]="univ.picUrl"></img-loader> -->
-
-
-      <ion-card-content>
-        <ion-card-title>
-          {{report.title}}
-        </ion-card-title>
-        <p>
-          {{report.content}}
-        </p>
-      </ion-card-content>
-    </ion-card>
+    <button ion-item *ngFor="let report of reports; index as i" (click)="showDetails(i)">
+      <text-avatar [text]="report.title"[color]="color" item-left></text-avatar>
+      <h2>{{ report.title || capitalizeFirst}}</h2>
+      <p>{{report.createdAt}}</p>
+    </button>
 
   </ion-list>
 

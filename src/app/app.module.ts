@@ -47,7 +47,6 @@ import { IonicStorageModule } from '@ionic/storage';
 
 
 
-
 // Firebase
 
 
@@ -64,6 +63,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {LoginPage} from "../pages/login/login";
 import {ReportPage} from "../pages/report/report";
 import { ReportServiceProvider } from '../providers/report-service/report-service';
+import {TextAvatarDirective} from "../directives/text-avatar/text-avatar";
+import {ReportDetailsPage} from "../pages/report-details/report-details";
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCziMXftyDQlqvUkEAR2bUDd1qBIEb2KyI',
@@ -84,7 +85,9 @@ export const firebaseConfig = {
     HomePage,
     TabsPage,
     LoginPage,
-    ReportPage
+    ReportPage,
+    ReportDetailsPage,
+    TextAvatarDirective
   ],
   imports: [
     BrowserModule,
@@ -101,6 +104,7 @@ export const firebaseConfig = {
     HomePage,
     TabsPage,
     LoginPage,
+    ReportDetailsPage,
     ReportPage
   ],
   providers: [
