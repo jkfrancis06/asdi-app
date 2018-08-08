@@ -44,6 +44,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { IonicStorageModule } from '@ionic/storage';
+import { IonicImageViewerModule } from 'ionic-img-viewer';
 
 
 
@@ -53,18 +54,18 @@ import { IonicStorageModule } from '@ionic/storage';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import {AngularFireDatabase} from 'angularfire2/database';
-import { AngularFireAuthModule } from 'angularfire2/auth';
 import { LoginProvider } from '../providers/login/login';
 import { StringProvider } from '../providers/string/string';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { ManagerServiceProvider } from '../providers/manager-service/manager-service';
 import { FarmServiceProvider } from '../providers/farm-service/farm-service';
-import {HttpClientModule} from "@angular/common/http";
 import {LoginPage} from "../pages/login/login";
 import {ReportPage} from "../pages/report/report";
 import { ReportServiceProvider } from '../providers/report-service/report-service';
 import {TextAvatarDirective} from "../directives/text-avatar/text-avatar";
 import {ReportDetailsPage} from "../pages/report-details/report-details";
+import {FileTransfer} from "@ionic-native/file-transfer";
+import {File} from "@ionic-native/file";
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCziMXftyDQlqvUkEAR2bUDd1qBIEb2KyI',
@@ -91,6 +92,7 @@ export const firebaseConfig = {
   ],
   imports: [
     BrowserModule,
+    IonicImageViewerModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
     IonicStorageModule.forRoot()
@@ -108,6 +110,8 @@ export const firebaseConfig = {
     ReportPage
   ],
   providers: [
+    FileTransfer,
+    File,
     AngularFireDatabase,
     LoginProvider,
     StringProvider,

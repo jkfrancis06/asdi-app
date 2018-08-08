@@ -7,12 +7,58 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Report details</ion-title>
+    <ion-title></ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  <h5>
+    <ion-item>
+      {{report.title}}
+    </ion-item>
+  </h5>
+
+  <ion-list>
+    <ion-item>
+      <ion-avatar item-start>
+        <text-avatar [text]="report.createdBy.firstname" [color]="color" item-left></text-avatar>
+      </ion-avatar>
+      <h2>{{report.createdBy.firstname}} {{report.createdBy.lastname}}</h2>
+      <p>{{report.createdAt}}</p>
+    </ion-item>
+  </ion-list>
+
+  <div>
+    <blockquote>
+      {{report.content}}
+    </blockquote>
+  </div>
+
+  <div>
+
+    <div class="img-box" *ngFor="let file of report.files; index as i">
+      <img class="image-view" src="{{file.url}}"
+           imageViewer="{{file.url}}"/>
+      <ion-card class="image-card" (click)="downloadFile(i)">
+        <ion-card-header>
+          <ion-grid>
+            <ion-row>
+              <ion-col col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9>
+                <span class="file-name">
+                  {{file.name}}
+                </span>
+              </ion-col>
+              <ion-col col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3>
+                <ion-icon name="download"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-header>
+      </ion-card>
+    </div>
+  </div>
 
 </ion-content>

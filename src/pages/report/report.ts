@@ -38,6 +38,7 @@ export class ReportPage {
         reports => {
           console.log(reports);
           let temp = reports
+          this.reports = [];
           for( let i = 0; i< temp.length; i++){
             // temp[i].date = new Date(reports[i].createdAt).toDateString();
             let d = new Date()
@@ -45,6 +46,15 @@ export class ReportPage {
               temp[i].createdAt = "Today  "+ new Date(reports[i].createdAt).toLocaleTimeString();
             }else {
               temp[i].createdAt = new Date(reports[i].createdAt).toDateString() +"  "+ new Date(reports[i].createdAt).toLocaleTimeString();
+            }
+            for (let j = 0; j< temp[i].files.length; j++){
+              let extension = temp[i].files[j].name.split('.').pop();
+              let ValidImageTypes = ["gif", "jpeg", "png", "jpg"];
+              if (ValidImageTypes.indexOf(extension) > -1){
+                temp[i].files[j].extension = "image";
+              }else {
+                temp[i].files[j].extension = "other";
+              }
             }
             this.reports.unshift(temp[i])
           }

@@ -16,5 +16,7 @@ export class StringProvider {
   public ERROR_LOGIN_MESSAGE = "Username or password incorrect";
   public ERROR_LOGIN_MESSAGE_TITLE = "Error";
   public SUCCESS_LOGIN_MESSAGE = "You are authenticated successfully";
+  public SUCCESS_DOWNLOAD_MESSAGE = "Download success";
+  public ERROR_DOWNLOAD_MESSAGE = "Download error";
 
 }
