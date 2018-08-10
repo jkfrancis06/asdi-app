@@ -40,24 +40,23 @@
   <div>
 
     <div class="img-box" *ngFor="let file of report.files; index as i">
-      <img class="image-view" src="{{file.url}}"
-           imageViewer="{{file.url}}"/>
-      <ion-card class="image-card" (click)="downloadFile(i)">
-        <ion-card-header>
-          <ion-grid>
-            <ion-row>
-              <ion-col col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9>
-                <span class="file-name">
-                  {{file.name}}
-                </span>
-              </ion-col>
-              <ion-col col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3>
-                <ion-icon name="download"></ion-icon>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-card-header>
-      </ion-card>
+      <img class="image-view" src="{{file.url}}" #myImage (click)="presentActionSheet(myImage,i)" />
+      <!--<ion-card class="image-card" (click)="downloadFile(i)">-->
+        <!--<ion-card-header>-->
+          <!--<ion-grid>-->
+            <!--<ion-row>-->
+              <!--<ion-col col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9>-->
+                <!--<span class="file-name">-->
+                  <!--{{file.name}}-->
+                <!--</span>-->
+              <!--</ion-col>-->
+              <!--<ion-col col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3>-->
+                <!--<ion-icon name="download"></ion-icon>-->
+              <!--</ion-col>-->
+            <!--</ion-row>-->
+          <!--</ion-grid>-->
+        <!--</ion-card-header>-->
+      <!--</ion-card>-->
     </div>
   </div>
 

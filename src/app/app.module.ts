@@ -66,6 +66,7 @@ import {TextAvatarDirective} from "../directives/text-avatar/text-avatar";
 import {ReportDetailsPage} from "../pages/report-details/report-details";
 import {FileTransfer} from "@ionic-native/file-transfer";
 import {File} from "@ionic-native/file";
+import {Diagnostic} from "@ionic-native/diagnostic";
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCziMXftyDQlqvUkEAR2bUDd1qBIEb2KyI',
@@ -112,6 +113,7 @@ export const firebaseConfig = {
   providers: [
     FileTransfer,
     File,
+    Diagnostic,
     AngularFireDatabase,
     LoginProvider,
     StringProvider,
